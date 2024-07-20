@@ -5,13 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
-const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
-const reviewRoutes_1 = __importDefault(require("./routes/reviewRoutes"));
+const user_1 = __importDefault(require("./api/user"));
+const review_1 = __importDefault(require("./api/review"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use('/api/users', userRoutes_1.default);
-app.use('/api/reviews', reviewRoutes_1.default); // Ensure this is correct
+app.use('/api/users', user_1.default);
+app.use('/api/reviews', review_1.default); // Ensure this is correct
 // Serve static files from the "public" directory
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 // Serve the main HTML file

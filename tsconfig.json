@@ -2,17 +2,20 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
-    "rootDir": "./src",
     "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*.ts", "src/types.d.ts"
-, "src/controllers/userController.js"  ],
+    "src/**/*",
+    "api/user.ts",
+    "api/review.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
 }
+

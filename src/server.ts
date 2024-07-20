@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
-import userRoutes from './routes/userRoutes';
-import reviewRoutes from './routes/reviewRoutes';
+import userRoutes from './api/user';
+import reviewRoutes from './api/review';
 
 const app = express();
 

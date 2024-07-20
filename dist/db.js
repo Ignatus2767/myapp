@@ -4,10 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const promise_1 = __importDefault(require("mysql2/promise"));
+// Use environment variables for sensitive information
 const pool = promise_1.default.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Kry,pton.0749',
-    database: 'signupdb',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 exports.default = pool;

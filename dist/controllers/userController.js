@@ -25,7 +25,13 @@ const handleSignUp = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     try {
         const [existingUsers] = yield db_1.default.query(checkQuery, [email, username]);
         if (existingUsers.length > 0) {
-            res.status(400).send('User with the same email or username already exists');
+            const existingUser = existingUsers[0];
+            if (existingUser.email === email) {
+                res.status(400).send('A user with this email already exists.');
+            }
+            else {
+                res.status(400).send('A user with this username already exists.');
+            }
             return;
         }
         const [results] = yield db_1.default.query(insertQuery, [fullname, email, username, hashedPassword, country]);

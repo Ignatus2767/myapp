@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import pool from '../db';
-import { Request, Response } from 'express';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
-const handleSignUp = async (req: Request, res: Response) => {
+export const handleSignUp = async (req: VercelRequest, res: VercelResponse) => {
   const { fullname, email, username, password, country } = req.body;
 
   // Hashing the password
@@ -34,7 +34,7 @@ const handleSignUp = async (req: Request, res: Response) => {
   }
 };
 
-const handleSignIn = async (req: Request, res: Response) => {
+export const handleSignIn = async (req: VercelRequest, res: VercelResponse) => {
   const { email, password } = req.body;
   const query = 'SELECT * FROM users WHERE email = ?';
 
@@ -61,5 +61,3 @@ const handleSignIn = async (req: Request, res: Response) => {
     res.status(500).send('Error signing in');
   }
 };
-
-export { handleSignUp, handleSignIn };
