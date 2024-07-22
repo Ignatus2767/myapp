@@ -1,10 +1,10 @@
-import express from 'express';
-import { handleAddReview, handleGetReviews } from '../controllers/reviewController';
+// myapp/src/routes/reviewRoutes.ts
+import { Router } from 'express';
+import { getReviews, addReview } from '../controllers/reviewController'; // Ensure the path is correct
 
-const router = express.Router();
+const router = Router();
 
-router.post('/add', handleAddReview);
-router.get('/all', handleGetReviews);
+router.get('/all', getReviews);
+router.post('/add', addReview);
 
 export default router;
-

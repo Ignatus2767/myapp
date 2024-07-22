@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const reviewController_1 = require("../controllers/reviewController");
-const router = express_1.default.Router();
-router.post('/add', reviewController_1.handleAddReview);
-router.get('/all', reviewController_1.handleGetReviews);
+// myapp/src/routes/reviewRoutes.ts
+const express_1 = require("express");
+const reviewController_1 = require("../controllers/reviewController"); // Ensure the path is correct
+const router = (0, express_1.Router)();
+router.get('/all', reviewController_1.getReviews);
+router.post('/add', reviewController_1.addReview);
 exports.default = router;
