@@ -101,6 +101,7 @@ body {
   text-decoration: underline;
 }
 
+<<<<<<< HEAD
 #feedback-message {
   position: fixed;
   top: 10px;
@@ -121,6 +122,8 @@ body {
   background-color: #F44336;
 }
 
+=======
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
 /* Media Query for Small Screens */
 @media (max-width: 480px) {
   .switcher {

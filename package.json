@@ -9,12 +9,17 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
+    "@vercel/node": "^3.2.7",
     "bcrypt": "^5.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.19.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.10.3",
+<<<<<<< HEAD
     "nodemailer": "^6.9.14"
+=======
+    "typescript": "^4.5.2"
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // myapp/src/controllers/userController.ts
 import { Request, Response } from 'express';
 import pool from '../db'; // Ensure that db.ts is correctly located in the parent directory
@@ -6,6 +7,14 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 dotenv.config();
+=======
+import bcrypt from 'bcrypt';
+import pool from '../db';
+import { VercelRequest, VercelResponse } from '@vercel/node';
+
+export const handleSignUp = async (req: VercelRequest, res: VercelResponse) => {
+  const { fullname, email, username, password, country } = req.body;
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
 
 // Setup your email transporter
 const transporter = nodemailer.createTransport({
@@ -48,8 +57,13 @@ export const handleSignUp = async (req: Request, res: Response) => {
       res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
+<<<<<<< HEAD
   
 export const handleSignIn = async (req: Request, res: Response) => {
+=======
+
+export const handleSignIn = async (req: VercelRequest, res: VercelResponse) => {
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
   const { email, password } = req.body;
 
   try {
@@ -89,6 +103,7 @@ export const handleSignIn = async (req: Request, res: Response) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
+<<<<<<< HEAD
 
 export const handleForgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
@@ -157,3 +172,5 @@ export const handleResetPassword = async (req: Request, res: Response) => {
       res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
+=======
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838

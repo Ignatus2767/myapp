@@ -31,12 +31,23 @@ const handleSignUp = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     try {
         const [existingUsers] = yield db_1.default.query('SELECT * FROM users WHERE email = ? OR username = ?', [email, username]);
         if (existingUsers.length > 0) {
+<<<<<<< HEAD
             if (existingUsers[0].email === email) {
                 return res.status(400).json({ success: false, message: 'Email already exists.' });
             }
             if (existingUsers[0].username === username) {
                 return res.status(400).json({ success: false, message: 'Username already exists.' });
             }
+=======
+            const existingUser = existingUsers[0];
+            if (existingUser.email === email) {
+                res.status(400).send('A user with this email already exists.');
+            }
+            else {
+                res.status(400).send('A user with this username already exists.');
+            }
+            return;
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
         }
         const hashedPassword = yield bcrypt_1.default.hash(password, 10);
         const [result] = yield db_1.default.query('INSERT INTO users (fullname, email, username, password, country) VALUES (?, ?, ?, ?, ?)', [fullname, email, username, hashedPassword, country]);

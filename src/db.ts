@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// Use environment variables for sensitive information
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -15,3 +16,4 @@ const pool = mysql.createPool({
 });
 
 export default pool;
+

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 //koj.js
+=======
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
 document.addEventListener('DOMContentLoaded', function() {
     const signupBtn = document.getElementById('signup-btn');
     const signinBtn = document.getElementById('signin-btn');
@@ -7,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const signinForm = document.getElementById('signin-form');
     const reviewForm = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
+<<<<<<< HEAD
     const feedbackMessage = document.getElementById('feedback-message'); // Feedback message element
     const forgotPasswordLink = document.getElementById('forgot-password-link');
     const forgotPasswordForm = document.getElementById('forgot-password-form');
@@ -53,6 +57,34 @@ document.addEventListener('DOMContentLoaded', function() {
     forgotPasswordLink.addEventListener('click', function(event) {
         event.preventDefault();
         forgotPasswordForm.classList.toggle('hidden');
+=======
+
+    signupBtn.addEventListener('click', function() {
+        signupBtn.classList.add('active');
+        signinBtn.classList.remove('active');
+        reviewBtn.classList.remove('active');
+        signupForm.classList.remove('hidden');
+        signinForm.classList.add('hidden');
+        reviewForm.classList.add('hidden');
+    });
+
+    signinBtn.addEventListener('click', function() {
+        signinBtn.classList.add('active');
+        signupBtn.classList.remove('active');
+        reviewBtn.classList.remove('active');
+        signinForm.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+        reviewForm.classList.add('hidden');
+    });
+
+    reviewBtn.addEventListener('click', function() {
+        reviewBtn.classList.add('active');
+        signupBtn.classList.remove('active');
+        signinBtn.classList.remove('active');
+        reviewForm.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+        signinForm.classList.add('hidden');
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
     });
 
     // Handle form submission for signup
@@ -66,11 +98,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate password and confirm password
         if (password !== confirmPassword) {
+<<<<<<< HEAD
             showFeedback('Passwords do not match. Please re-enter.', 'error');
+=======
+            alert('Passwords do not match. Please re-enter.');
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
             console.log('Passwords do not match:', password, confirmPassword);
             return;
         }
 
+<<<<<<< HEAD
+=======
+        // If passwords match, proceed with fetch request
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
         fetch('/api/users/signup', {
             method: 'POST',
             headers: {
@@ -78,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
+<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -90,6 +131,24 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             showFeedback('An error occurred. Please try again.', 'error');
+=======
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Signup failed');
+            }
+        })
+        .then(data => {
+            console.log('Signup response:', data);
+            // Display success message or redirect
+            alert('Signup successful!');
+            window.location.href = 'index.html'; // Redirect to signin page
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
         });
     });
 
@@ -104,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
+<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -116,6 +176,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             showFeedback('An error occurred. Please try again.', 'error');
+=======
+        .then(response => response.text())
+        .then(data => {
+            console.log('Received signin data:', data); // Log the response data
+            // Handle success or redirect
+            alert('Sign-in successful!, ');
+            window.location.href = 'https://ignatus2767.github.io/krydmal/';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors if any
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
         });
     });
 
@@ -130,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
+<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -143,6 +216,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             showFeedback('An error occurred. Please try again.', 'error');
+=======
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            event.target.reset();
+            fetchReviews();
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
         });
     });
 
@@ -160,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+<<<<<<< HEAD
     // Function to display feedback messages
     const showFeedback = (message, type) => {
         feedbackMessage.textContent = message;
@@ -211,3 +292,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+=======
+    // Initial fetch of reviews when the page loads
+    fetchReviews();
+});
+
+
+>>>>>>> a2d056486d5c82c981e5a3ef97637150e89cc838
